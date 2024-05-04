@@ -1,0 +1,18 @@
+{
+    "port_range": "1001-65535",
+    "globals": {
+        "registry": "",
+        "registry_secret": "kubernetes registry secret",
+        "user_password": "password",
+        "admin_password": "admin password",
+        "gotty_password": "gotty password"
+    },
+    "boxes": [
+        {
+            "name": "user",
+            "port": 1001,
+            "discord_uid": "", # used only for discord bot dissemination
+            "novnc_password": "password"
+        }
+    ]
+}

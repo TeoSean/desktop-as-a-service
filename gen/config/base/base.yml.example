@@ -1,0 +1,38 @@
+
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vncbox-${{config.name}}
+  labels:
+    app: vncbox
+    name: ${{config.name}}
+
+spec:
+  nodeSelector: 
+    healthy: "true"
+  imagePullSecrets:
+    - name: ${{globals.registry_secret}}
+  containers:
+  - name: ${{config.name}}
+    image: ${{globals.registry}}/test-practical-vncbox:latest
+    env:
+      - name: USER_PASSWORD
+        value: "${{globals.user_password}}"
+      - name: ADMIN_PASSWORD
+        value: "${{globals.admin_password}}"
+      - name: GOTTY_PASSWORD
+        value: "${{globals.gotty_password}}"
+      - name: NOVNC_PASSWORD
+        value: "${{config.novnc_password}}"
+    ports:
+      - name: ${{config.name}}-port
+        containerPort: 8080
+    resources:
+      requests:
+        memory: "1.5Gi"
+        cpu: "1.0"
+      limits:
+        memory: "1.5Gi"
+        cpu: "1.0"
+

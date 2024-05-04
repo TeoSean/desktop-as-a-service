@@ -1,3 +1,0 @@
-#!/bin/sh
-xrdb ~/.Xresources
-dbus-launch xfce4-session &

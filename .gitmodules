@@ -1,0 +1,3 @@
+[submodule "vncbox"]
+	path = vncbox
+	url = git@github.com:sawntoe/vncbox.git
